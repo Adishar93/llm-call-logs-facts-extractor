@@ -1,6 +1,6 @@
 # Call Logs Fact Extractor
 
-This project is a combination of a Python Flask server and a React frontend designed to extract facts from call logs provided via text file links. The server implements prompt engineering using the GPT-4 model, while the frontend allows users to input questions and text file URLs for processing.
+This project is a combination of a Python Flask server and a React frontend designed to extract facts from call logs provided via text file links. The server implements prompt engineering using the GPT-4 model, while the frontend allows users to input questions and text file URLs for processing. You can find the prompt engineering logic inside the file **processing.py**
 
 ## High-Level Approach
 
