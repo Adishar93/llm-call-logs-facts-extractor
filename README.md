@@ -25,3 +25,11 @@ To run the project, follow these steps:
 2. Start the React frontend by running `npm start` inside the `react-frontend` folder.
 3. If testing with a local Flask server, uncomment the `SERVER_URL` constant inside `Constants.js` to point to the localhost address.
 
+## Screenshots
+
+![Screenshot 2024-04-17 230234](https://github.com/Adishar93/llm-call-logs-facts-extractor/assets/39119745/c9be3e9e-d42b-4085-8047-a4914beb064a)
+
+![Screenshot 2024-04-17 230255](https://github.com/Adishar93/llm-call-logs-facts-extractor/assets/39119745/22b72942-04d0-4bae-9261-f82f9bdfbb80)
+![Screenshot 2024-04-17 230318](https://github.com/Adishar93/llm-call-logs-facts-extractor/assets/39119745/5cc63bc1-706e-4011-b136-764ab1ff5f96)
+
+
