@@ -17,7 +17,18 @@ shared_variables.init()
 # Flask Server
 app = Flask(__name__)
 
+
 # Endpoints
+@app.route('/submit_question_and_documents', methods=['OPTIONS'])
+def handle_preflight():
+    # Add CORS headers to the response
+    headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST',
+        'Access-Control-Allow-Headers': 'Content-Type',
+    }
+    return '', 204, headers
+
 @app.route("/submit_question_and_documents", methods=["POST"])
 def submit_question_and_documents():
     global g_question
@@ -29,8 +40,9 @@ def submit_question_and_documents():
         target=start_processing_data, args=(question, document_links)
     )
     thread.start()
-    return jsonify({"message": "Request received successfully"}), 200
-
+    response = jsonify({"message": "Request received successfully"})
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response, 200
 
 @app.route("/get_question_and_facts", methods=["GET"])
 def get_question_and_facts():
@@ -46,11 +58,13 @@ def get_question_and_facts():
             question=g_question, facts=shared_variables.g_facts, status="done"
         )
 
-    return app.response_class(
+    response = app.response_class(
         response=json.dumps(response.to_dict(), sort_keys=False),
         status=200,
         mimetype="application/json",
     )
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 
 if __name__ == "__main__":
